@@ -1,20 +1,20 @@
 import { IMealComposite } from "../interfaces/IMealComposite";
 
-export class MealBoxComposite implements IMealComposite {
+export class MealBox implements IMealComposite {
 
-  // * Composite: aqui é o produto, objeto composto por outros objetos, segundo o padrão Builder.
+  // * Aqui é o produto, objeto composto por outros objetos.
 
   private readonly _children: IMealComposite[] = [];
-  private totalPrice: number = 0;
 
   getPrice(): number {
     if(this._children.length == 0){
       return 0;
     } else {
+      let totalPrice: number = 0;
       for(const p of this._children){
-        this.totalPrice += p.getPrice();
+        totalPrice += p.getPrice();
       }
-      return this.totalPrice;
+      return totalPrice;
     }
   }
 
