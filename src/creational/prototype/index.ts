@@ -1,5 +1,5 @@
-import { Address } from "./ts/shallowPrototype/classes/Address";
-import { Person } from "./ts/shallowPrototype/classes/Person";
+import { Address } from "./ts/prototype_shallow_copy/classes/Address";
+import { Person } from "./ts/prototype_shallow_copy/classes/Person";
 
 const person = new Person('Junior','Mota', 22);
 const addres1 = new Address('Av.Brasil', 15);
@@ -18,8 +18,11 @@ console.log(person3.getAge());
 console.log(person3);
 
 // * aqui temos um shallow copy, um problema ao usar prototype, não se usa assim, ou usa-se, mas com deep copy.
-person.addAddresses(addres1);
-person.alterStreet('Casa do caralho', 0);
 
-console.log(person2.getAddresses());
+person.addAddresses(addres1);
+console.log(person.getAddresses());
+
+person2.alterStreet('Casa engraçada', 0);
+person2.alterNumber(0, 0);
+console.log(person.getAddresses());
 
